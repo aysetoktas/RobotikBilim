@@ -3,68 +3,37 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/TStudent/Views/Shared/_StudentLayout.cshtml";
 }
-<!--begin::Card-->
-<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-    <div class="card card-custom gutter-b example example-compact">
-        <div class="card-header">
-            <div class="card-title">
-                <h3 class="card-label">Cropper.js</h3>
-            </div>
-            <div class="card-toolbar">
-                <div class="example-tools justify-content-center">
-                    <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-info">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/TStudent/Document/ClassroomList"><b>DOKÜMANLAR</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Tüm Kategoriler</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="mb-3">
-                        <iframe style="height:800px; width:1000px;" src="https://docs.google.com/presentation/d/e/2PACX-1vQ-RXghwayRSgTDAaTnoTYQWy6yV_dTt8P_W51ntW5RDBNrvFbHS54rZKQWooyBpeVQJJQ_ttjqeXYT/embed?start=false&loop=false&delayms=3000"></iframe>
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="mailto:elif@robotikbilim.com.tr?subject=Konuyu Giriniz"><b>ÖĞRETMENE MAİL AT</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Tüm Dokümanlar</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    <!--end::Card-->
-    <div class="d-flex flex-column-fluid">
-        <!--begin::Container-->
-        <div class="container">
-            <!--begin::Notice-->
-            <div class="alert alert-custom alert-white alert-shadow fade show gutter-b" role="alert">
-                <div class="alert-text">
-                    Cropper.js is a JavaScript image cropper.
-                    <br />For more info please visit the plugin's
-                    <a class="font-weight-bold" href="https://fengyuanchen.github.io/cropperjs/" target="_blank">Demo Page</a>or
-                    <a class="font-weight-bold" href="https://github.com/fengyuanchen/cropperjs" target="_blank">GitHub</a>.
-                </div>
-            </div>
-            <!--end::Notice-->
-            <!--begin::Card-->
-            <div class="card card-custom gutter-b example example-compact">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3 class="card-label">Cropper.js</h3>
-                    </div>
-                    <div class="card-toolbar">
-                        <div class="example-tools justify-content-center">
-                            <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <div class="mb-3">
-                                <img id="image" src="/metronic/theme/html/demo1/dist/assets/media/stock-600x600/img-9.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end::Card-->
-        </div>
-        <!--end::Container-->
-    </div>
-    <!--end::Entry-->

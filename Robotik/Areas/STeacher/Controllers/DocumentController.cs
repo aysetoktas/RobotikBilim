@@ -40,7 +40,7 @@ namespace Robotik.Areas.STeacher.Controllers
             return View(updateDocument);
         }
         [HttpPost]
-        public ActionResult Update(Document data, HttpPostedFileBase Pdf)
+        public ActionResult Update(Document data, HttpPostedFileBase Pdf, string[] classrooms)
         {
             Document updDocument = db.Documents.Find(data.ID);
             if (Pdf != null)
@@ -56,6 +56,14 @@ namespace Robotik.Areas.STeacher.Controllers
             updDocument.Description = data.Description;
             updDocument.Path = data.Path;
             updDocument.CategoryID = data.CategoryID;
+            updDocument.Classrooms.Clear();
+            db.SaveChanges();
+            foreach (string cat in classrooms)
+            {
+                int catId = Convert.ToInt32(cat);
+                Classroom classroom = db.Classrooms.Find(catId);
+                updDocument.Classrooms.Add(classroom);
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

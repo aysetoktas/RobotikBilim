@@ -1,0 +1,31 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Areas/TStudent/Views/Shared/_StudentLayout.cshtml";
+    List<Category> categories = Query.CategoryList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in categories)
+            {
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-info">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/TStudent/Document/DocumentList?id=@item.ID"><b>@item.Name</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Tüm Kategoriler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+            
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@using Entity
+@model List<Document>
+@{
+    ViewBag.Title = "DocumentList";
+    Layout = "~/Areas/TStudent/Views/Shared/_StudentLayout.cshtml";
+    List<Document> documents = Query.DocumentList();
+    List<Category> categories = Query.CategoryList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">DOKÜMANLAR</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="display nowrap" style="width:100%" id="eduLessonTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th>Doküman Kategorisi</th>
+                                        <th>Doküman Adı</th>
+                                        <th>Açıklaması</th>
+                                        <th>Doküman</th>
+                                        <th>Dokümanı Görüntüle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>@item.Category.Name</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Description</td>
+                                        <td><object data="@item.Path" style="width:100px; height:100px;"></object></td>
+                                        <td>
+                                            <a href="/TStudent/Document/SingleDocument/@item.ID">
+                                                <button type="button" class="btn btn-success">Dokümanı Görüntüle</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

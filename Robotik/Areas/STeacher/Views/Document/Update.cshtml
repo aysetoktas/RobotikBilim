@@ -5,6 +5,7 @@
     Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
     List<Document> documents = Query.DocumentList();
     List<Category> categories = Query.CategoryList();
+    List<Classroom> classrooms = Query.ClassroomList();
 }
 <div class="content">
     <div class="container-fluid">
@@ -41,6 +42,22 @@
                             <div class="">
                                 <label for="Pdf"><b>Doküman Linki</b></label>
                                 <input type="file" name="Pdf">
+                            </div>
+                            <div class="form-group">
+                                <label for="Grade">Sınıf</label>
+                                <select name="classrooms" size="5" class="form-control" multiple style="height:auto;">
+                                    @foreach (Classroom cat in classrooms)
+                                    {
+                                        if (Model.Classrooms.Contains(cat))
+                                        {
+                                            <option style="color:red;" value="@cat.ID">@cat.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@cat.ID">@cat.Name</option>
+                                        }
+                                    }
+                                </select>
                             </div>
                             <input type="submit" value="Güncelle" class="form-control btn btn-primary" />
                         </form>

@@ -46,7 +46,7 @@ namespace Robotik.Controllers
                     else if(currentStudent != null)
                     {
                         Session["currentStudent"] = currentStudent;
-                        return RedirectToAction("Index", "Home", new { area = "Student" });
+                        return RedirectToAction("Index", "Home", new { area = "TStudent" });
                     }
                 }
                 else

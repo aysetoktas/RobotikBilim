@@ -34,7 +34,7 @@ namespace Robotik.Areas.STeacher.Controllers
             return View(updateStudent);
         }
         [HttpPost]
-        public ActionResult Update(Entity.Student data)
+        public ActionResult Update(Entity.Student data, string[] classrooms)
         {
             Entity.Student updStudent = db.Students.Find(data.ID);
             updStudent.UserName = data.UserName;
@@ -42,6 +42,14 @@ namespace Robotik.Areas.STeacher.Controllers
             updStudent.LastName = data.LastName;
             updStudent.Email = data.Email;
             updStudent.Password = data.Password;
+            updStudent.Classrooms.Clear();
+            db.SaveChanges();
+            foreach (string cat in classrooms)
+            {
+                int catId = Convert.ToInt32(cat);
+                Classroom classroom = db.Classrooms.Find(catId);
+                updStudent.Classrooms.Add(classroom);
+            }
             db.SaveChanges();
 
             return RedirectToAction("Index");

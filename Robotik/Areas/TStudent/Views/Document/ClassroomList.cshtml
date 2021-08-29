@@ -1,0 +1,34 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "ClassroomList";
+    Layout = "~/Areas/TStudent/Views/Shared/_StudentLayout.cshtml";
+    Student currentStudent = Session["currentStudent"] as Student;
+    List<Classroom> classrooms = Query.ClassroomList();
+    List<Classroom> studentClassroom = currentStudent.Classrooms.ToList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (Classroom classroom in studentClassroom)
+            {
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-info">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="/TStudent/Document/CategoryList"><b>@classroom.Name</b></a></h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <p>Tüm Kategoriler</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+

@@ -34,7 +34,7 @@ namespace Robotik.Areas.Admin.Controllers
             return View(updateTeacher);
         }
         [HttpPost]
-        public ActionResult TeacherUpdate(Entity.Teacher data)
+        public ActionResult TeacherUpdate(Entity.Teacher data, string[] educations)
         {
             Entity.Teacher updTeacher = db.Teachers.Find(data.ID);
             updTeacher.UserName = data.UserName;
@@ -43,6 +43,14 @@ namespace Robotik.Areas.Admin.Controllers
             updTeacher.Email = data.Email;
             updTeacher.Password = data.Password;
             updTeacher.PhoneNumber = data.PhoneNumber;
+            updTeacher.Educations.Clear();
+            db.SaveChanges();
+            foreach (string cat in educations)
+            {
+                int catId = Convert.ToInt32(cat);
+                Education education = db.Educations.Find(catId);
+                updTeacher.Educations.Add(education);
+            }
             db.SaveChanges();
 
             return RedirectToAction("Index");

@@ -1,8 +1,9 @@
 ﻿@using Entity
-@model Lesson
+@model List<Lesson>
 @{
     ViewBag.Title = "LessonList";
     Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Education> educations = Query.EducationList();
     List<Lesson> lessons = Query.LessonList();
 }
 <div class="content">

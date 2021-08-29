@@ -1,0 +1,49 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Category> categories = Query.CategoryList();
+    List<Document> documents = Query.DocumentList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">DOKÜMAN EKLE</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/STeacher/Document/Add" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="CategoryID">Kategori Seçiniz:</label>
+                                <select name="CategoryID" class="form-control" id="educationSelect">
+                                    <option selected disabled value="">Kategori Seçiniz.. </option>
+                                    @foreach (var item in categories)
+                                    {
+                                        <option value="@item.ID">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Name">Doküman Adı</label>
+                                <input name="Name" class="form-control" rows="3" required="" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Açıklama</label>
+                                <input name="Description" class="form-control" rows="3" required="" />
+                            </div>
+                            <div class="">
+                                <label for="Pdf"><b>Doküman Linki</b></label>
+                                <input type="file" name="Pdf">
+                            </div>
+                            <input type="submit" value="Ekle" class="form-control btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

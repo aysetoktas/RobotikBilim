@@ -1,0 +1,62 @@
+﻿@using Entity
+@model Lesson
+@{
+    ViewBag.Title = "LessonAdd";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Lesson> lessons = Query.LessonList();
+    List<Level> levels = Query.LevelList();
+    List<Education> educations = Query.EducationList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">ÜNİTE EKLE</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/Admin/Lesson/LessonAdd" method="post">
+                            <div class="form-group">
+                                <label for="EducationID">Eğitim Seçiniz:</label>
+                                <select name="EducationID" class="form-control" id="educationSelect">
+                                    <option selected disabled value="">Eğitim Seçiniz.. </option>
+                                    @foreach (var item in educations)
+                                    {
+                                        <option value="@item.ID">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="LevelID">Seviye Seçiniz:</label>
+                                <select name="LevelID" class="form-control" id="levelsSelect">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Name">Ders Adı</label>
+                                <input name="Name" class="form-control" rows="3" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Content">İçerik</label>
+                                <input name="Content" class="form-control" rows="3" />
+                            </div>
+                            @*<div class="form-group">
+                                <label for="Logo">Logo</label>
+                                <input name="Logo" class="form-control" rows="3" />
+                            </div>*@
+                            <div class="form-group">
+                                <label for="Path">Path</label>
+                                <input name="Path" class="form-control" rows="3" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Code">Ders Kodu</label>
+                                <input name="Code" class="form-control" rows="3" />
+                            </div>
+                            <input type="submit" value="Ekle" class="form-control btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

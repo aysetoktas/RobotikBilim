@@ -1,0 +1,28 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Teacher/Views/Shared/_TeacherLayout.cshtml";
+    List<Classroom> classrooms = Query.ClassroomList();
+}
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"><b> SINIF EKLE </b></h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <form action="/Teacher/Classroom/Add" method="post">
+                            <div class="form-group">
+                                <label for="Name" class="text-primary"><b>Ders Adı</b></label>
+                                <input name="Name" class="form-control" rows="3" />
+                            </div>
+                            <input type="submit" value="Ekle" class="form-control btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

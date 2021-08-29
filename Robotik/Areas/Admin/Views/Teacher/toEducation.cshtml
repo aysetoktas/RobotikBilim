@@ -1,0 +1,39 @@
+﻿@using Entity
+@model Teacher
+@{
+    ViewBag.Title = "toEducation";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Education> educations = Query.EducationList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">ÖĞRETMENE EĞİTİM ATA</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/Admin/Teacher/toEducation" method="post">
+                            <div class="form-group">
+                                <label for="ID">Eğitim Seçiniz:</label>
+                                <input name="ID" readonly value="@Model.ID" class="form-control disabled" />
+                            </div>
+                            <div class="form-group">
+                                <label for="EducationID">Eğitim Seçiniz:</label>
+                                <select name="EducationID" class="form-control" id="">
+                                    <option selected disabled value="">Eğitim Seçiniz.. </option>
+                                    @foreach (var item in educations)
+                                    {
+                                        <option value="@item.ID">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <input type="submit" value="Ekle" class="form-control btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

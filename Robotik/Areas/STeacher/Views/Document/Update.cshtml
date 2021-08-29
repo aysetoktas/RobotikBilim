@@ -1,0 +1,52 @@
+﻿@using Entity
+@model Document
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Document> documents = Query.DocumentList();
+    List<Category> categories = Query.CategoryList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">DOKÜMAN Güncelle</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/STeacher/Document/Update" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="ID">Doküman ID</label>
+                                <input name="ID" readonly value="@Model.ID" class="form-control disabled" />
+                            </div>
+                            <div class="form-group">
+                                <label for="CategoryID">Kategori Seçiniz:</label>
+                                <select name="CategoryID" class="form-control" id="educationSelect">
+                                    <option selected disabled value="">Kategori Seçiniz.. </option>
+                                    @foreach (var item in categories)
+                                    {
+                                        <option value="@item.ID">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Name">Doküman Adı</label>
+                                <input name="Name" value="@Model.Name" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Doküman Açıklaması</label>
+                                <input name="Description" value="@Model.Description" class="form-control" />
+                            </div>
+                            <div class="">
+                                <label for="Pdf"><b>Doküman Linki</b></label>
+                                <input type="file" name="Pdf">
+                            </div>
+                            <input type="submit" value="Güncelle" class="form-control btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

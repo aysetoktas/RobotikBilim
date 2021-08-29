@@ -1,0 +1,80 @@
+﻿@using Entity
+@model Teacher
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Teacher> teachers = Query.TeacherList();
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h3 class="card-title ">Öğretmenler</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="display" style="width:100%" id="teacherTable">
+                                    <thead class=" text-primary">
+                                        <tr>
+                                            <th>Eğitim Ata</th>
+                                            <th>Kullanıcı Adı</th>
+                                            <th>Ad</th>
+                                            <th>Soyad</th>
+                                            <th>E-mail</th>
+                                            <th>Şifre</th>
+                                            <th>Telefon</th>
+                                            <th>Eğitimler</th>
+                                            <th>İşlem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Teacher user in teachers)
+                                        {
+                                        <tr>
+                                            <td>
+                                                <a href="/Admin/Teacher/toEducation/@user.ID">
+                                                    <button type="button" class="btn btn-info">Eğitim Ata</button>
+                                                </a>
+                                            </td>
+                                            <td>@user.UserName</td>
+                                            <td>@user.FirstName</td>
+                                            <td>@user.LastName</td>
+                                            <td>@user.Email</td>
+                                            <td>@user.Password</td>
+                                            <td>@user.PhoneNumber</td>
+                                            @{string educations = " ";
+                                                foreach (var c in user.Educations)
+                                                {
+                                                    educations += c.Name + " / ";
+                                                }
+                                            }
+                                            <td>@educations</td>
+                                            <td>
+                                                <a href="/Admin/Teacher/TeacherUpdate/@user.ID">
+                                                    <button type="button" class="btn btn-info">GÜNCELLE</button>
+                                                </a>
+                                                <a href="/Admin/Teacher/TeacherDelete/@user.ID">
+                                                    <button type="button" class="btn btn-danger">SİL</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

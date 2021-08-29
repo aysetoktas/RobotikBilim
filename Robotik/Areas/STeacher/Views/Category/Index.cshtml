@@ -1,0 +1,48 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Category> categories = Query.CategoryList();
+
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">KATEGORİLER</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="display" style="width:100%" id="teacherTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th>Sınıf</th>
+                                        <th>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Category cat in categories)
+                                    {
+                                        <tr>
+                                            <td>@cat.Name</td>
+                                            <td>
+                                                <a href="/STeacher/Category/Update/@cat.ID">
+                                                    <button type="button" class="btn btn-info">GÜNCELLE</button>
+                                                </a>
+                                                <a href="/STeacher/Category/Delete/@cat.ID">
+                                                    <button type="button" class="btn btn-danger">SİL</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+﻿@*@using Entity*@
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+    //List<Education> educations = Query.EducationList();
+    //List<Lesson> lessons = Query.LessonList();
+    //Admin currentAdmin = Session["currentAdmin"] as Admin;
+}
+<!-- End Navbar -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-warning">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/Admin/Education/Index"><b>EĞİTİMLER</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Tüm Eğitimler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-warning">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/Admin/Education/EducationAdd"><b>EĞİTİM EKLE</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Eğitim Ekle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-rose">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/Admin/Lesson/Index"><b>DERSLER</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Tüm Dersler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-rose">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/Admin/Lesson/LessonAdd"><b>DERS EKLE</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Ders Ekle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/Admin/Teacher/Index"><b>ÖĞRETMENLER</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Tüm Öğretmenler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="/Admin/Teacher/TeacherAdd"><b>ÖĞRETMEN EKLE</b></a></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>Öğretmen Ekle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

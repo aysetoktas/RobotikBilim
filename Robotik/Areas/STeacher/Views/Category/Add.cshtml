@@ -1,0 +1,30 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Category> categories = Query.CategoryList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">KATEGORİ EKLE</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/STeacher/Category/Add" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="Name">Kullanıcı Adı</label>
+                                <input name="Name" class="form-control" rows="3" required="" />
+                            </div>
+                            <input type="submit" value="Ekle" class="form-control btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

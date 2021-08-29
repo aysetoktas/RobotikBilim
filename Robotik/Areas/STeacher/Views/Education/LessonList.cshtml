@@ -1,0 +1,36 @@
+﻿@using Entity
+@model List<Lesson>
+@{
+    ViewBag.Title = "LessonList";
+    Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Lesson> lessons = Query.LessonList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <img src="@item.Education.ImagePath" alt="@item.Education.Name" style="height:70px; width:70px;" />
+                            </div>
+                            <p class="card-category">Ders</p>
+                            <h3 class="card-title">
+                                <a href="/STeacher/Education/SingleLesson?id=@item.ID"><b style="color:black;">@item.Name</b></a>
+                            </h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <p>Dersler</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

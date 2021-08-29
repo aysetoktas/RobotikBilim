@@ -1,0 +1,66 @@
+﻿@using Entity
+@model Lesson
+@{
+    ViewBag.Title = "LessonUpdate";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Lesson> lessons = Query.LessonList();
+    List<Education> educations = Query.EducationList();
+    List<Level> levels = Query.LevelList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">Ders Güncelle</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/Admin/Lesson/LessonUpdate" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="ID">Ders ID</label>
+                                <input name="ID" readonly value="@Model.ID" class="form-control disabled" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Logo">Ders Adı</label>
+                                <input name="Logo" value="@Model.Logo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Path">Ders Adı</label>
+                                <input name="Path" value="@Model.Path" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Name">Ders Adı</label>
+                                <input name="Name" value="@Model.Name" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Content">Ders Adı</label>
+                                <input name="Content" value="@Model.Content" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="EducationID">Eğitim Seçiniz:</label>
+                                <select name="EducationID" class="form-control" id="educationSelect">
+                                    <option selected disabled value="">Eğitim Seçiniz.. </option>
+                                    @foreach (var item in educations)
+                                    {
+                                        <option value="@item.ID">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="LevelID">Ünite Seçiniz:</label>
+                                <select name="LevelID" class="form-control" id="levelsSelect">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Code">Ders Adı</label>
+                                <input name="Code" value="@Model.Code" class="form-control" />
+                            </div>
+                            <input type="submit" value="Güncelle" class="form-control btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

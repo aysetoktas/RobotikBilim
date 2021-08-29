@@ -1,0 +1,69 @@
+﻿@using Entity
+@model Document
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Category> categories = Query.CategoryList();
+    List<Document> documents = Query.DocumentList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">DOKÜMANLAR</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="display nowrap" style="width:100%" id="eduLessonTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th>Sınıfa Ata</th>
+                                        <th style="width:100px;">Kategori</th>
+                                        <th>Doküman Adı</th>
+                                        <th>Doküman Açıklaması</th>
+                                        <th>Doküman Linki</th>
+                                        <th>Sınıf</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in documents)
+                                    {
+                                    <tr>
+                                        <td>
+                                            <a href="/STeacher/Document/toClassroom/@item.ID">
+                                                <button type="button" class="btn btn-info">Sınıfa Ata</button>
+                                            </a>
+                                        </td>
+                                        <td>@item.Category.Name</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Description</td>
+                                        <td><object data="@item.Path" style="width:100px; height:100px;"></object></td>
+                                        @{string classrooms = " ";
+                                            foreach (var c in item.Classrooms)
+                                            {
+                                                classrooms += c.Name + " / ";
+                                            }
+                                        }
+                                        <td>@classrooms</td>
+                                        <td>
+                                            <a href="/STeacher/Document/Update/@item.ID">
+                                                <button type="button" class="btn btn-info">GÜNCELLE</button>
+                                            </a>
+                                            <a href="/STeacher/Document/Delete/@item.ID">
+                                                <button type="button" class="btn btn-danger">SİL</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

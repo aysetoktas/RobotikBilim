@@ -1,0 +1,35 @@
+﻿@using Entity
+@model Lesson
+@{
+    ViewBag.Title = "Index3";
+    Layout = "~/Areas/Teacher/Views/Shared/_TeacherLayout.cshtml";
+}
+
+<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+    <div class="col-md-12" id="EduImageDiv" style="display: none;">
+        <img id="eduImage" src="" style="width:100%; margin-bottom:20px;">
+    </div>
+    <div id="pageContentTr">
+        <div class="kt-subheader kt-grid__item" id="kt_subheader">
+            <div class="kt-subheader__main">
+                <h3 class="kt-subheader__title"></h3>
+                <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+                <span class="kt-subheader__desc"></span>
+            </div>
+        </div>
+        <div class="kt-portlet content">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">Led Yakma<small>red-Kit C</small></h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="kt-section kt-section--first">
+                    <div class="kt-section__body">
+                        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQdYvUcQHY7W1gzXAzLImZZUPRwBGFJt60SUJqD8Fe7bwpoD_3ZrpKe_5knRlWFtctaUv7HaUAYcp4d/embed?start=false&amp;loop=false&amp;delayms=3000" type="application/pdf" frameborder="0" width="751" height="451" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Education> educations = Query.EducationList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">EĞİTİMLER</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="display nowrap" style="width:100%" id="eduLessonTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th style="width:100px;">EğitimAdı</th>
+                                        <th>Not</th>
+                                        <th>Saat</th>
+                                        <th>Logo</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in educations)
+                                    {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Note</td>
+                                        <td>@item.Hour</td>
+                                        <td><img src="@item.ImagePath" style="width:100px; height:100px;"/></td>
+                                        <td>
+                                            <a href="/Admin/Education/EducationUpdate/@item.ID">
+                                                <button type="button" class="btn btn-info">GÜNCELLE</button>
+                                            </a>
+                                            <a href="/Admin/Education/EducationDelete/@item.ID">
+                                                <button type="button" class="btn btn-danger">SİL</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

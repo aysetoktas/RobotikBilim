@@ -1,0 +1,16 @@
+﻿.lock {
+    filter: grayscale(100%);
+    background-color: gainsboro;
+}
+
+a.lock {
+    pointer-events: none;
+}
+
+.languageActive {
+    background-color: rgba(77, 89, 149, 0.06);
+}
+
+.kt-widget__contact h5 {
+    font-size: 1rem;
+}

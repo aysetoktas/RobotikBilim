@@ -1,0 +1,69 @@
+﻿@using Entity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/STeacher/Views/Shared/_STeacherLayout.cshtml";
+    List<Student> students = Query.StudentList();
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title ">ÖĞRENCİLER</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="display" style="width:100%" id="teacherTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th>Sınıfa Ata</th>
+                                        <th>Kullanıcı Adı</th>
+                                        <th>Ad</th>
+                                        <th>Soyad</th>
+                                        <th>E-mail</th>
+                                        <th>Şifre</th>
+                                        <th>Sınıf</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Student user in students)
+                                    {
+                                    <tr>
+                                        <td>
+                                            <a href="/STeacher/Student/toClassroom/@user.ID">
+                                                <button type="button" class="btn btn-info">Sınıfa Ata</button>
+                                            </a>
+                                        </td>
+                                        <td>@user.UserName</td>
+                                        <td>@user.FirstName</td>
+                                        <td>@user.LastName</td>
+                                        <td>@user.Email</td>
+                                        <td>@user.Password</td>
+                                        @{string classrooms = " ";
+                                            foreach (var c in user.Classrooms)
+                                            {
+                                                classrooms += c.Name + " / ";
+                                            }
+                                        }
+                                        <td>@classrooms</td>
+                                        <td>
+                                            <a href="/STeacher/Student/Update/@user.ID">
+                                                <button type="button" class="btn btn-info">GÜNCELLE</button>
+                                            </a>
+                                            <a href="/STeacher/Student/Delete/@user.ID">
+                                                <button type="button" class="btn btn-danger">SİL</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
